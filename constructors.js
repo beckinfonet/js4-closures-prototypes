@@ -7,7 +7,10 @@
 // The values for the make and model will come from two parameters, make and model (in that order). 
 
 // Code here
-
+function CarFactory(make, model){
+  this.make = make;
+  this.model = model;
+}
 
 
 
@@ -27,7 +30,7 @@ function Employee(name, email, hireDate) {
 
 // Code here
 
-
+var bob = new Employee('Bob', 'bob@gmail.com', '01-02-98');
 
 
 
@@ -42,7 +45,17 @@ function Employee(name, email, hireDate) {
 
 // Code here
 
+function Car(make, model, year){
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
 
+Car.prototype.moveCar = function(){
+  let move = 0;
+
+  return this.move += 10;
+}
 
 
   //Function Invocations Here
@@ -54,8 +67,6 @@ function Employee(name, email, hireDate) {
   
   prius.moveCar(); //increments prius' move property by 10. Returns the new move property.
   mustang.moveCar(); //increments mustang' move property by 10. Returns the new move property.
-
-
 
 
 
