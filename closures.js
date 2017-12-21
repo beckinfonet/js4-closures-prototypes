@@ -20,14 +20,8 @@ function outer() {
   
   //Code Here
   
-  
-  
-  
-  
-  
-  
-  
-  
+  const inner = outer();
+ 
   
   /******************************************************************************\
       #PROBLEM-02
@@ -52,14 +46,10 @@ function outer() {
   
     //Code Here
   
+  const callJake = callFriend('Jake');
+  callJake(435-555-9248)
   
-  
-  
-  
-  
-  
-  
-  
+    
   /******************************************************************************\
       #PROBLEM-03
   \******************************************************************************/
@@ -69,22 +59,20 @@ function outer() {
   properly. */
   
   //Code Here
-  
+  function makeCounter(){
+    let count = 0;
+    return function(){
+      return count += 1;
+    }
+  }
+
+
   //Uncomment this once you make your function
-  //   var count = makeCounter();
-  //   count(); // 1
-  //   count(); // 2
-  //   count(); // 3
-  //   count(); // 4
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    var count = makeCounter();
+    count(); // 1
+    count(); // 2
+    count(); // 3
+    count(); // 4
   
   /******************************************************************************\
       #PROBLEM-04
@@ -102,11 +90,18 @@ function outer() {
   
   function counterFactory(value) {
   
-    // Code here.
-  
+    // Code here
   
     return {
+      inc: function(){
+        value +=1;
+        return value;
+      },
 
+      dec: function(){
+        value -=1;
+        return value;
+      }
     }
   }
   
@@ -116,16 +111,7 @@ function outer() {
   // counter.inc() // 12
   // counter.inc() // 13
   // counter.dec() // 12
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   /******************************************************************************\
       #PROBLEM-05
   \******************************************************************************/
@@ -143,22 +129,15 @@ function outer() {
   
     // code message function here.
   
-  
+  return function(){
+    return `${welcomeText}${firstname} ${lastname}.`
+  }
     //Uncommment this to return the value of your message function
     //return message;
   
   }
   
   var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   /******************************************************************************\
       #PROBLEM-06
@@ -184,6 +163,10 @@ function outer() {
     // outside our lexical scope
     return {
       // Code here.
+      publicMethod: function(){
+        return privateMethod();
+      }
+      
     };
   
   })();
@@ -203,6 +186,12 @@ function outer() {
 
     return {
       // Code here
+      addToSecret: function(num){
+          return secret += num;
+      },
+      takeAwayFromSecret: function(num){
+        return secret -= num;
+      }
     }
   }
   
@@ -230,10 +219,13 @@ function outer() {
   
   function timeOutCounter() {
     for (var i = 0; i <= 5; i++) {
+      let index = i
       setTimeout(function() {
-          console.log(i)
+          console.log(index)
       }, i * 1000)
     }
   }
   timeOutCounter();
+
+  //  let that = this  <<<<< ???????????
   
